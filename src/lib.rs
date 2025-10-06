@@ -26,16 +26,12 @@ pub  fn counter_p(programme_id: &Pubkey,accounts: &[AccountInfo], instruction_da
         InstructionType::Decrement(value) => {
             msg!("Decrement counter");
             counter.count = counter.count.saturating_sub(value);
-        };
+        }
     }
 
     counter.serialize(&mut &mut acc.data.borrow_mut()[..])?;
     msg!("Counter updated: {}", counter.count);
 
     Ok(())
-    
-
-
-
 
 }
